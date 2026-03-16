@@ -136,17 +136,17 @@ def append_to_v_ratio_csv(freq, b87_u, b85_u, filename):
     row = [
         f"{freq}",  # Freq (assuming no error, or use freq.n)
         "0",  # Freq_err
-        f"{b87_u.n:.8e}",  # Rb87 value
-        f"{b87_u.s:.8e}",  # Rb87 error
         f"{b85_u.n:.8e}",  # Rb85 value
-        f"{b85_u.s:.8e}"  # Rb85 error
+        f"{b85_u.s:.8e}",  # Rb85 error
+        f"{b87_u.n:.8e}",  # Rb87 value
+        f"{b87_u.s:.8e}"   # Rb87 error
     ]
 
     file_exists = os.path.isfile(filename)
 
     with open(filename, 'a') as f:
         if not file_exists or os.stat(filename).st_size == 0:
-            f.write("Freq,Freq_err,Rb87,Rb87_err,Rb85,Rb85_err\n")
+            f.write("Freq,Freq_err,Rb85,Rb85_err,Rb87,Rb87_err\n")
             f.write("kHz,kHz,T,T,T,T\n")
 
         f.write(",".join(row) + "\n")
