@@ -206,3 +206,15 @@ def append_to_quadrupleZeeman_csv(freq, dips, filename):
             f.write("MHz,MHz,T,T,T,T,T,T,T,T\n")
 
         f.write(",".join(row) + "\n")
+
+# # S=1/2 always
+# # L=0,1,2... for fine structure
+# def J(L,S):
+#     return L+S
+#
+# # F are the hyperfine splitting numbers
+# def F(I,J):
+#     return I+J
+#
+# def M_f(F):
+#     return np.linspace(-F,F+1)
