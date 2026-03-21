@@ -9,6 +9,8 @@ def lorentz(x,h,g,x0):
 
 def single_lorentz(x,A, h,g,x0):
     return A - lorentz(x,h,g,x0)
+def double_lorentz(x, A, h1, g1, x0_1, h2, g2, x0_2):
+    return A - lorentz(x, h1,g1,x0_1) - lorentz(x, h2,g2,x0_2)
 def triple_lorentz(x, A, h1, g1, x0_1, h2, g2, x0_2, h3, g3, x0_3):
     return A - lorentz(x, h1,g1,x0_1) - lorentz(x, h2,g2,x0_2) - lorentz(x, h3,g3,x0_3)
 def quadruple_lorentz(x, A, m, h1, g1, x0_1, h2, g2, x0_2, h3, g3, x0_3, h4, g4, x0_4):
