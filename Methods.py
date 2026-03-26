@@ -209,14 +209,23 @@ def append_to_quadrupleZeeman_csv(freq, dips, filename):
 
         f.write(",".join(row) + "\n")
 
-# # S=1/2 always
-# # L=0,1,2... for fine structure
-# def J(L,S):
-#     return L+S
-#
-# # F are the hyperfine splitting numbers
-# def F(I,J):
-#     return I+J
-#
-# def M_f(F):
-#     return np.linspace(-F,F+1)
+
+
+def append_to_Vcalibration(Vsweep, Vhoriz, filename):
+    # print(f"Attempting to write to {filename}...")
+    row = [
+        f"{Vsweep.n}",
+        f"{Vsweep.s}",
+        f"{Vhoriz.n}",
+        f"{Vhoriz.s}",
+    ]
+
+    file_exists = os.path.isfile(filename)
+
+    with open(filename, 'a') as f:
+        if not file_exists or os.stat(filename).st_size == 0:
+            f.write("Vsweep,uVsweep,Vhoriz,uVhoriz\n")
+            f.write("V,V,V,V\n")
+        f.write(",".join(row) + "\n")
+    #     print(f"write completed")
+    # print("function returning")
